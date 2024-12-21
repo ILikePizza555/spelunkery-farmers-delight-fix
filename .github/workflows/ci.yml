@@ -36,5 +36,9 @@ jobs:
         uses: thedoctor0/zip-release@0.7.5
         with:
           type: zip
-          filename: "spelinkery-farmers'delight-fix v1.zip"
+          filename: "spelunkery-farmers'delight-fix v1.zip"
           exclusions: '*.git*'
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: "spelunkery-farmers'delight-fix v1.zip"
