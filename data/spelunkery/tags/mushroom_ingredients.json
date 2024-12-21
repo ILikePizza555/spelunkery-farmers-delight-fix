@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:brown_mushroom",
+        "spelunkery:button_mushroom",
+        "spelunkery:crimini",
+        "spelunkery:portabella"
+    ]
+}
