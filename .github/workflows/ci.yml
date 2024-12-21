@@ -52,8 +52,10 @@ jobs:
       - name: Run PackSquash
         uses: ComunidadAylas/PackSquash-action@v4
         with:
-          artifact_name: '[UNZIP ME] your-datapack v1'
+          artifact_name: 'spelinkery-farmers'delight-fix v1'
           packsquash_version: latest
-          options: |
-            pack_directory = '.'
-            allow_mods = ['OptiFine']
+      - name: Tag and create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: action-v${{ github.run_number }}
+          files: /tmp/pack.zip
