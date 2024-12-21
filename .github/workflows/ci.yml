@@ -43,6 +43,8 @@ jobs:
        # Errors if files aren't found
           if-no-files-found: error
   build-packsquash:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
