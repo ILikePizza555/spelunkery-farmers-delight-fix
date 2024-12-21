@@ -15,6 +15,8 @@ on:
   workflow_dispatch:
 jobs:
   build-main:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     # Only run on PRs if the source branch is on someone else's repository
     if: ${{ github.event_name != 'pull_request' || github.repository != github.event.pull_request.head.repo.full_name }}  
@@ -33,27 +35,12 @@ jobs:
         uses: ocular-d/json-linter@0.0.2
       # Uploads an artifact that you can download and use in your Minecraft world
       - name: Compile and upload
-        uses: actions/upload-artifact@v4
+        uses: thedoctor0/zip-release@0.7.5
         with:
-          name: your-datapack v1
-          path: |
-               data/
-               pack.mcmeta
-               pack.png
-       # Errors if files aren't found
-          if-no-files-found: error
-  build-packsquash:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+          type: zip
+          filename: "spelunkery-farmers'delight-fix v1.zip"
+          exclusions: '*.git*'
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
         with:
-          fetch-depth: 0
-      - name: Run PackSquash
-        uses: ComunidadAylas/PackSquash-action@v4
-        with:
-          artifact_name: '[UNZIP ME] your-datapack v1'
-          packsquash_version: latest
-          options: |
-            pack_directory = '.'
-            allow_mods = ['OptiFine']
+          artifacts: "spelunkery-farmers'delight-fix v1.zip"
