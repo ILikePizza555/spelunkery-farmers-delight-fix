@@ -35,7 +35,7 @@ jobs:
         uses: ocular-d/json-linter@0.0.2
       # Uploads an artifact that you can download and use in your Minecraft world
       - name: Compile and upload
-        uses: thedoctor0/zip-release@0.7.5
+        uses: thedoctor0/zip-release@0.7.6
         with:
           type: zip
           filename: "spelunkery-farmers'delight-fix v1.zip"
